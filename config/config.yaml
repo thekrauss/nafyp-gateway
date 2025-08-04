@@ -1,0 +1,24 @@
+server:
+  host: "0.0.0.0"
+  http_port: 8091
+
+jwt:
+  secret_key: "super-secret-key-change-me"
+  access_token_expiry: 1h
+  refresh_token_expiry: 168h  
+  issuer: "auth-service"
+
+grpc_clients:
+  auth_service_addr: "localhost:50061"       # AuthService
+  control_plane_addr: "localhost:50062"     # Control-plane
+  kube_manager_addr: "localhost:50063"      # Kube-manager
+  billing_service_addr: "localhost:50064"   # Billing-service (optionnel)
+  node_service_addr: "localhost:50065"      # Node-service
+
+metrics:
+  prometheus_enabled: true
+  prometheus_port: 9090
+
+logging:
+  level: "info"   # debug | info | warn | error
+  format: "json"  # text | json
